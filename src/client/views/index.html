@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Evaluate News</title>
+    </head>
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <body>
+
+        <header>
+            MeaningCloud Text Analysis
+        </header>
+        <main>
+            <section>
+                <form class="" onsubmit="return Client.handleSubmit(event)">
+                    <input id="textInput" type="text" name="input" placeholder="Enter URL">
+                    <input id="submit" type="submit" name="" value="Submit" onclick="return Client.submitText(event)" onsubmit="return Client.submitText(event)">
+                </form>
+            </section>
+
+            <section>
+                <div class="title">Sentiment Analysis Results</div>
+                <div id="confidence"></div>
+                <div id="subjectivity"></div>
+                <div id="agreement"></div>
+                <div id="text_snippet"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Tram Nguyen @ 2022</p>
+        </footer>
+
+    </body>
+</html>
